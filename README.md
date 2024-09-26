@@ -15,21 +15,27 @@ This project is a React-based AI chat application that uses the Gemini AI model 
 
 ## Features
 
-- Real-time chat interface with AI-powered responses using Gemini AI
-- Multiple chat sessions management
-- Sidebar for easy navigation between chats
-- Responsive design for various screen sizes
-- Welcome screen with predefined conversation starters
-- Dynamic chat history saving and loading
-- New chat creation and deletion functionality
-- Custom styling with Tailwind CSS
-- Routing with React Router for single-page application experience
-- Message formatting and styling
-- Error handling for AI response generation
-- Mobile-friendly sidebar toggle
-- Chat grouping by date
-- Automatic chat creation on first load
-- Response review option with like/dislike functionality
+- Real-time AI-Powered Chat:
+  - Interact with the Gemini AI model for instant responses.
+  - Error handling for AI response generation.
+- Multiple Chat Sessions:
+  - Manage multiple chat sessions simultaneously.
+  - Create, delete, and save chat histories dynamically.
+- Sidebar Navigation:
+  - Easy navigation between chats via a sidebar.
+  - Group chats by date for better organization.
+  - Toggle the sidebar on mobile for optimized use.
+- Responsive Design:
+  - Mobile-friendly, fully responsive UI built with Tailwind CSS.
+  - Optimized for various screen sizes.
+- Welcome Screen with Predefined Starters:
+  - Display conversation starters and a welcome screen on the first load.
+  - Automatic chat creation when first opening the application.
+- Custom Message Formatting:
+  - Styled message inputs with options for text formatting.
+  - Interactive message review system with like/dislike buttons.
+- Routing and Navigation:
+  - Single-page application with React Router for smooth transitions between sections.
 
 ## Technologies Used
 
@@ -40,13 +46,11 @@ This project is a React-based AI chat application that uses the Gemini AI model 
 - Tailwind CSS for styling
 - Day.js for date formatting
 - React Icons for UI icons
-- Jest and React Testing Library for testing
 - GitHub Pages for deployment
 - useEffect and useState hooks for state management
 - Custom hooks for side effects and state logic
-- SVG icons for UI elements
 - Responsive design techniques
-- ES6+ JavaScript features
+- Various state management techniques
 
 ## Prerequisites
 
