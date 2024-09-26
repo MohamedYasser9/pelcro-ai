@@ -143,7 +143,7 @@ const App = () => {
   );
 
   return (
-    <Router basename="/pelcro-chatbot-assistant">
+    <Router basename="/pelcro-ai">
       <Routes>
         <Route path="/" element={<ChatInterface />} />
       </Routes>
