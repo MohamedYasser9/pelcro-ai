@@ -12,7 +12,7 @@ const Sidebar = ({ chats, onSelectChat, onNewChat, onDeleteChat }) => {
         setIsOpen(false);
       }
     };
-
+//
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
