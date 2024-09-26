@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/pelcro-ai/static/css/main.537ff89b.css",
-    "main.js": "/pelcro-ai/static/js/main.7e5b450b.js",
-    "index.html": "/pelcro-ai/index.html",
-    "main.537ff89b.css.map": "/pelcro-ai/static/css/main.537ff89b.css.map",
-    "main.7e5b450b.js.map": "/pelcro-ai/static/js/main.7e5b450b.js.map"
+    "main.css": "/MohamedYasser9/pelcro-ai/static/css/main.537ff89b.css",
+    "main.js": "/MohamedYasser9/pelcro-ai/static/js/main.7e5b450b.js",
+    "index.html": "/MohamedYasser9/pelcro-ai/index.html",
+    "main.537ff89b.css.map": "/MohamedYasser9/pelcro-ai/static/css/main.537ff89b.css.map",
+    "main.7e5b450b.js.map": "/MohamedYasser9/pelcro-ai/static/js/main.7e5b450b.js.map"
   },
   "entrypoints": [
     "static/css/main.537ff89b.css",
