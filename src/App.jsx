@@ -1,11 +1,10 @@
-// src/App.jsx
+
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ChatbotHeader from './components/ChatbotHeader';
 import ChatbotBody from './components/ChatbotBody';
 import ChatbotInput from './components/ChatbotInput';
 import Sidebar from './components/Sidebar';
-import dayjs from 'dayjs'; // For formatting dates
 
 const App = () => {
   const [showWelcome, setShowWelcome] = useState(true);
@@ -13,13 +12,14 @@ const App = () => {
   const [chats, setChats] = useState([]);
   const [currentChatIndex, setCurrentChatIndex] = useState(0);
   const [showChatbotBody, setShowChatbotBody] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const handleSend = (message) => {
     const newMessage = { sender: 'user', text: message, date: new Date() };
     const updatedMessages = [...messages, newMessage];
     setMessages(updatedMessages);
 
-    // Simulate chatbot response
+  
     setTimeout(() => {
       const response = { sender: 'chatbot', text: message, date: new Date() };
       setMessages([...updatedMessages, response]);
@@ -39,6 +39,9 @@ const App = () => {
     setCurrentChatIndex(index);
     setMessages(chats[index].messages);
     setShowChatbotBody(true);
+    if (window.innerWidth < 768) {
+      setIsSidebarOpen(false);
+    }
   };
 
   const handleDeleteChat = (index) => {
@@ -61,14 +64,12 @@ const App = () => {
     const updatedMessages = [...messages, newMessage];
     setMessages(updatedMessages);
 
-    // Simulate chatbot response
     setTimeout(() => {
       const response = { sender: 'chatbot', text: buttonText, date: new Date() };
       setMessages([...updatedMessages, response]);
     }, 1000);
   };
 
-  // Save chat messages to the sidebar when a message is sent
   const updateChatHistory = (messages) => {
     const updatedChats = [...chats];
     updatedChats[currentChatIndex] = { messages };
@@ -80,33 +81,58 @@ const App = () => {
   }, [messages]);
 
   useEffect(() => {
-    // Initialize with an empty chat if there are no chats
     if (chats.length === 0) {
       handleNewChat();
     }
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsSidebarOpen(true);
+      } else {
+        setIsSidebarOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   const ChatInterface = () => (
-    <div className="flex h-screen">
+    <div className="flex h-screen bg-white">
       <Sidebar
         chats={chats}
         onSelectChat={handleSelectChat}
         onNewChat={handleNewChat}
         onDeleteChat={handleDeleteChat}
+        isOpen={isSidebarOpen}
+        onToggle={toggleSidebar}
       />
-      <div className="flex-1 flex flex-col bg-gradient-to-r from-teal-50 via-cyan-100 to-teal-50">
-        <ChatbotHeader onNewChat={handleNewChat} />
-        <div className="flex-1 flex items-center justify-center p-6">
-          <div className="w-full max-w-2xl flex flex-col h-full bg-transparent">
+      <div className="flex-1 flex flex-col">
+        <ChatbotHeader onNewChat={handleNewChat} onToggleSidebar={toggleSidebar} />
+        <div className="flex-1 overflow-hidden">
+          <div className="h-full flex flex-col justify-between">
             {showChatbotBody && (
-              <div className="flex-1 overflow-y-auto mb-4  bg-transparent">
-                <ChatbotBody messages={messages} setShowWelcome={setShowWelcome} showWelcome={showWelcome} onButtonClick={handleButtonClick} />
+              <div className="flex-1 overflow-y-auto p-4 sm:p-6">
+                <ChatbotBody 
+                  messages={messages} 
+                  setShowWelcome={setShowWelcome} 
+                  showWelcome={showWelcome} 
+                  onButtonClick={handleButtonClick} 
+                />
               </div>
             )}
-            <div className=" bg-transparent rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="p-2 sm:p-4">
               <ChatbotInput 
                 onSend={handleSend} 
-                className="w-full py-3 px-6 text-teal-800 placeholder-teal-400 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent"
+                className="w-full py-2 px-4 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="Type your message here..."
               />
             </div>

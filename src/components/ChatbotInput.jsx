@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 const ChatbotInput = ({ onSend }) => {
@@ -19,31 +18,35 @@ const ChatbotInput = ({ onSend }) => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-teal-400 via-emerald-500 to-cyan-600 p-3 shadow-lg rounded-full">
-      <div className="max-w-3xl mx-auto">
-        <div className="flex items-center space-x-2">
+    <div className="w-full px-8 sm:px-12 md:px-16 lg:px-20 py-2 sm:py-3 md:py-4 bg-transparent">
+      <form className="flex items-center w-full max-w-4xl mx-auto">
+        <div className="relative flex-grow">
           <input
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             onKeyPress={handleKeyPress}
-            className="flex-1 p-2 rounded-full border-2 border-white focus:outline-none focus:ring-2 focus:ring-teal-300 focus:border-transparent bg-white bg-opacity-90 placeholder-teal-600 text-teal-800 shadow-inner text-sm transition-all duration-300 ease-in-out hover:shadow-md"
-            placeholder="Ask Pelcro's AI anything..."
+            className="w-full px-6 py-3 bg-gray-100 rounded-full focus:outline-none focus:ring-2 focus:ring-[#35b6A9] pr-12 shadow-md"
+            placeholder="Message Pelcro AI..."
           />
           <button
             onClick={handleSend}
-            className={`p-2 rounded-full transition-all duration-300 transform hover:scale-105 ${
-              message.trim()
-                ? 'bg-gradient-to-r from-teal-500 to-cyan-500 text-white hover:from-teal-600 hover:to-cyan-600 shadow-md hover:shadow-lg'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed opacity-50'
-            }`}
             disabled={!message.trim()}
+            className="absolute right-1 sm:right-1.5 md:right-2 top-1/2 transform -translate-y-1/2 p-1 sm:p-1.5 md:p-2 text-white bg-[#35b6A9] rounded-full hover:bg-[#2a9186] focus:outline-none focus:ring-2 focus:ring-[#35b6A9] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-              <path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4 sm:h-5 sm:w-5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
             </svg>
           </button>
         </div>
+      </form>
+      <div className="text-center mt-2 text-xs text-gray-500">
+        Powered by Gemini AI
       </div>
     </div>
   );

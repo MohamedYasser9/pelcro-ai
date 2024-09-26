@@ -24,6 +24,12 @@ This project is a React-based AI chat application that uses the Gemini AI model 
 - New chat creation and deletion functionality
 - Custom styling with Tailwind CSS
 - Routing with React Router for single-page application experience
+- Message formatting and styling
+- Error handling for AI response generation
+- Mobile-friendly sidebar toggle
+- Chat grouping by date
+- Automatic chat creation on first load
+- Response review option with like/dislike functionality
 
 ## Technologies Used
 
@@ -36,6 +42,11 @@ This project is a React-based AI chat application that uses the Gemini AI model 
 - React Icons for UI icons
 - Jest and React Testing Library for testing
 - GitHub Pages for deployment
+- useEffect and useState hooks for state management
+- Custom hooks for side effects and state logic
+- SVG icons for UI elements
+- Responsive design techniques
+- ES6+ JavaScript features
 
 ## Prerequisites
 
