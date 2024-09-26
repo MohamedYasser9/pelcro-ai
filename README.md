@@ -1,4 +1,4 @@
-# Pelcro AI Chat Application
+# Pelcro AI 
 
 This project is a React-based AI chat application that uses the Gemini AI model to generate responses. It provides a user-friendly interface for chatting with an AI assistant.
 
